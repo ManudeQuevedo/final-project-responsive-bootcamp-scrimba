@@ -1,6 +1,11 @@
-/* Fonts */
+/*==================
+      Fonts
+==================*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700;900&display=swap');
 
+/*==================
+   General Layout
+==================*/
 * {
    box-sizing: border-box;
 }
@@ -13,6 +18,15 @@ body {
    margin: 0;
 }
 
+.main-grid {
+   display: grid;
+   grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+   gap: 0 2em;
+}
+
+/*==================
+     Typography
+==================*/
 h1,
 h2,
 strong {
@@ -20,20 +34,186 @@ strong {
 }
 
 .accent-color {
-   color: yellow;
+   color: #ffe600;
+}
+
+.section-title {
+   color: #000;
+   font-size: 1.125rem;
+   margin-top: 1.25em;
 }
 
 /*==================
-    Hero Styles
+      Buttons
+==================*/
+.btn {
+   font-weight: 700;
+   margin-top: 0.5em;
+   padding: 0.5em 1.75em;
+   text-decoration: none;
+}
+
+.btn-primary {
+   background-color: #ffe600;
+   color: #000;
+   justify-self: start;
+}
+
+.btn-secondary {
+}
+
+/*==================
+    Nav Section
+==================*/
+.header {
+   background-color: #000;
+}
+
+.header-content {
+   display: flex;
+   grid-column: 2 / -2;
+}
+
+.logo-link {
+   background-color: #ffe600;
+   padding-top: 2em;
+}
+
+.nav-list {
+   display: flex;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.nav-link {
+   color: #fff;
+}
+
+/*==================
+   Hero Section
 ==================*/
 .hero {
    background-image: url('./img/hero-bg.jpg');
+   background-position: bottom;
    background-repeat: no-repeat;
    background-size: cover;
    color: #fff;
-   display: grid;
-   grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+   padding: 4em 0;
 }
 .hero > * {
    grid-column: 2 / -2;
+}
+
+.hero-title {
+   font-size: 1.5rem;
+   line-height: 1.4;
+   margin-bottom: 0;
+}
+
+/*==================
+   Info Section
+==================*/
+.info {
+   padding: 4em 0;
+   text-align: center;
+}
+
+.col-1 {
+   grid-column: 2 / -2;
+}
+
+/*==================
+  Footer Section
+==================*/
+.footer {
+   background-color: #ebebeb;
+   grid-template-areas:
+      '. social .'
+      '. main .';
+   padding: 4em 0;
+   text-align: center;
+}
+
+.footer-main,
+.social-list {
+   grid-column: 2 / -2;
+}
+
+.footer-main {
+   grid-area: main;
+   margin-top: 2em;
+}
+
+.footer-logo,
+.footer-text,
+.footer-fineprint {
+   opacity: 0.5;
+}
+
+.footer-fineprint {
+   font-size: 0.75rem;
+   margin-top: 4em;
+}
+
+.social-list {
+   display: flex;
+   grid-area: social;
+   justify-content: center;
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+.social-link {
+   color: #000;
+   margin: 0 0.75em;
+   transition: color 0.3s ease;
+   -webkit-transition: color 0.3s ease;
+}
+
+.social-link:hover,
+.social-link:focus {
+   color: #777;
+}
+
+/*==================
+   Media Queries
+==================*/
+@media screen and (min-width: 768px) {
+   .main-grid {
+      grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(180px, 320px)) minmax(
+            1em,
+            1fr
+         );
+   }
+
+   .hero {
+      padding: 6em 0;
+   }
+
+   .hero > * {
+      grid-column: 2 / span 2;
+   }
+
+   .col-1 {
+      grid-column: span 1;
+   }
+
+   .col-1:first-child {
+      grid-column: 2 / span 1;
+   }
+
+   .footer {
+      grid-template-areas: ' .. main main social';
+   }
+
+   .footer-main {
+      margin-top: 0;
+      text-align: left;
+   }
+
+   .social-list {
+      justify-content: flex-end;
+   }
 }
