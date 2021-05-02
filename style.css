@@ -69,6 +69,12 @@ strong {
    background-color: #000;
 }
 
+.header-home {
+   background: transparent;
+   position: absolute;
+   width: 100%;
+}
+
 .header-content {
    display: flex;
    grid-column: 2 / -2;
@@ -148,7 +154,7 @@ strong {
    background-repeat: no-repeat;
    background-size: cover;
    color: #fff;
-   padding: 4em 0;
+   padding: 8em 0 4em;
 }
 .hero > * {
    grid-column: 2 / -2;
@@ -237,8 +243,33 @@ strong {
          );
    }
 
+   .open-nav, .close-nav {
+      display: none;
+   }
+
+   .nav {
+      position: initial;
+   }
+
+   .nav-list {
+      flex-direction: row;
+      justify-content: flex-end;
+   }
+
+   .nav-item {
+      margin-left: 2em;
+   }
+
+   .nav-link {
+      font-size: 1rem;
+   }
+
+   .header-home .nav {
+      background: transparent;
+   }
+
    .hero {
-      padding: 6em 0;
+      padding: 10em 0 6em;
    }
 
    .hero > * {
